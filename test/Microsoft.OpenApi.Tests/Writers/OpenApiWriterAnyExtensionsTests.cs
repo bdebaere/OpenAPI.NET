@@ -118,6 +118,21 @@ namespace Microsoft.OpenApi.Tests.Writers
             json.Should().Be(input.ToString().ToLower());
         }
 
+        [Theory]
+        [InlineData("773ced31-08a7-413d-8dc4-0000183ef9de")]
+        public void WriteOpenApiGuidAsJsonWorks(string inputString)
+        {
+            // Arrange
+            var input = Guid.Parse(inputString);
+            var guidValue = new OpenApiGuid(input);
+
+            var json = WriteAsJson(guidValue);
+            var expectedJson = "\"" + inputString + "\"";
+
+            // Assert
+            json.Should().Be(expectedJson);
+        }
+
         [Fact]
         public void WriteOpenApiObjectAsJsonWorks()
         {

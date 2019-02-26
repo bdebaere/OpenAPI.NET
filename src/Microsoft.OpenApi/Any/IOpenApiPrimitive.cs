@@ -61,7 +61,12 @@ namespace Microsoft.OpenApi.Any
         /// <summary>
         /// Password
         /// </summary>
-        Password
+        Password,
+
+        /// <summary>
+        /// Guid
+        /// </summary>
+        Guid
     }
 
     /// <summary>

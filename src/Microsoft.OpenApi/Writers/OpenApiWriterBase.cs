@@ -185,6 +185,15 @@ namespace Microsoft.OpenApi.Writers
         }
 
         /// <summary>
+        /// Write Guid value.
+        /// </summary>
+        /// <param name="value">The Guid value.</param>
+        public virtual void WriteValue(Guid value)
+        {
+            this.WriteValue(value.ToString());
+        }
+
+        /// <summary>
         /// Write object value.
         /// </summary>
         /// <param name="value">The object value.</param>
@@ -233,6 +242,10 @@ namespace Microsoft.OpenApi.Writers
             else if (type == typeof(DateTimeOffset) || type == typeof(DateTimeOffset?))
             {
                 WriteValue((DateTimeOffset)value);
+            }
+            else if (type == typeof(Guid) || type == typeof(Guid?))
+            {
+                WriteValue((Guid)value);
             }
             else
             {

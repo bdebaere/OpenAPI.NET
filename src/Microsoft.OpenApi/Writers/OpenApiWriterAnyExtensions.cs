@@ -193,6 +193,11 @@ namespace Microsoft.OpenApi.Writers
                     writer.WriteValue(passwordValue.Value);
                     break;
 
+                case PrimitiveType.Guid:
+                    var guidValue = (OpenApiGuid)primitive;
+                    writer.WriteValue(guidValue.Value);
+                    break;
+
                 default:
                     throw new OpenApiWriterException(
                         string.Format(
